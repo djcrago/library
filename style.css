@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+li {
+    list-style: none;
+    background-color: rgb(232, 232, 232);
+    color: lightslategray;
+    width: 400px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px;
+}
