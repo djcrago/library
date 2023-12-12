@@ -18,13 +18,21 @@ form {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 16px;
+    min-width: 400px;
+    padding: 10px;
+}
+
+ul {
+    border: 1px solid #000;
+    border-radius: 8px;
+    min-height: 40px;
+    min-width: 400px;
 }
 
 li {
     list-style: none;
     background-color: rgb(232, 232, 232);
     color: lightslategray;
-    width: 400px;
     padding: 15px;
     border-radius: 8px;
 }
@@ -32,11 +40,6 @@ li {
 button {
     padding: 10px;
     cursor: pointer;
-}
-
-form {
-    padding: 30px;
-    width: 400px;
 }
 
 #dialog {
@@ -62,6 +65,7 @@ form {
 
 .status {
     color: rgba(119, 136, 153);
+    margin-left: auto;
 }
 
 .delete:hover,
