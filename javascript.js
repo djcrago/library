@@ -6,8 +6,20 @@ let dialogBox = document.querySelector('#dialog');
 let title = document.querySelector('#title');
 let author = document.querySelector('#author');
 let pages = document.querySelector('#pages');
+
+let textInputs = [
+    title,
+    author,
+    pages,
+];
+
 let read = document.querySelector('#read');
 let unread = document.querySelector('#unread');
+
+let radioInputs = [
+    read,
+    unread,
+];
 
 let submitButton = document.querySelector('#submit');
 let cancel = document.querySelector('#cancel');
@@ -55,11 +67,8 @@ submitButton.addEventListener('click', (event) => {
     event.preventDefault();
     let book = new Book(title.value, author.value, pages.value, read.checked);
     addBookToLibrary(book);
-    title.value = '';
-    author.value = '';
-    pages.value = '';
-    read.checked = false;
-    unread.checked = false;
+    textInputs.forEach((input) => input.value = '');
+    radioInputs.forEach((input) => input.checked = false);
     dialogBox.close();    
 });
 
