@@ -52,7 +52,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary(object) {
+function addBookToLibrary() {
     let book = new Book(title.value, author.value, pages.value, read.checked);
     myLibrary.push(book);
 }
@@ -91,6 +91,11 @@ function displayBook(book) {
     list.appendChild(bookContainer);
 }
 
+function resetForm() {
+    textInputs.forEach((input) => input.value = '');
+    radioInputs.forEach((input) => input.checked = false);
+}
+
 myLibrary.forEach(displayBook);
 
 addBook.addEventListener('click', () => dialogBox.showModal());
@@ -100,8 +105,7 @@ submitButton.addEventListener('click', (event) => {
     addBookToLibrary();
     list.textContent = '';
     myLibrary.forEach(displayBook);
-    textInputs.forEach((input) => input.value = '');
-    radioInputs.forEach((input) => input.checked = false);
+    resetForm();
     dialogBox.close();    
 });
 
