@@ -71,6 +71,8 @@ function displayBook(book) {
         deleteBtn.textContent = 'Delete';
         deleteBtn.addEventListener('click', () => {
             list.removeChild(bookContainer);
+            let deletedBook = myLibrary.indexOf(book);
+            myLibrary.splice(deletedBook, 1);
         });
     bookContainer.appendChild(deleteBtn);
     list.appendChild(bookContainer);
