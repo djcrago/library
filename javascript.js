@@ -34,3 +34,9 @@ let dialogBox = document.querySelector('#dialog');
 newBook.addEventListener('click', () => {
     dialogBox.showModal();
 });
+
+let submitButton = document.querySelector('#submit');
+
+submitButton.addEventListener('click', () => {
+    dialogBox.close();
+});
