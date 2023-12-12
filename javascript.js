@@ -1,3 +1,17 @@
+let list = document.querySelector('#list');
+
+let newBook = document.querySelector('#new');
+let dialogBox = document.querySelector('#dialog');
+
+let title = document.querySelector('#title');
+let author = document.querySelector('#author');
+let pages = document.querySelector('#pages');
+let read = document.querySelector('#read');
+let unread = document.querySelector('#unread');
+
+let submitButton = document.querySelector('#submit');
+let cancel = document.querySelector('#cancel');
+
 const myLibrary = [
     {
         title: 'The Meaning of Marriage',
@@ -26,36 +40,26 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-let list = document.querySelector('#list');
+function addBookToLibrary(book) {
+    let newBook = document.createElement('li');
+    newBook.textContent = `${book.title} by ${book.author} is ${book.pages}
+                            pages long. Read Status: ${book.read}.`;
+    list.appendChild(newBook);
+}
 
-myLibrary.forEach((object) => {
-    let book = document.createElement('li');
-    book.textContent = `${object.title} by ${object.author} is ${object.pages}
-                        pages long. Read Status: ${object.read}.`;
-    list.appendChild(book);
-});
-
-let newBook = document.querySelector('#new');
-let dialogBox = document.querySelector('#dialog');
+myLibrary.forEach(addBookToLibrary);
 
 newBook.addEventListener('click', () => {
     dialogBox.showModal();
 });
 
-let submitButton = document.querySelector('#submit');
-
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();
     dialogBox.close();
-    let title = document.querySelector('#title');
-    let author = document.querySelector('#author');
-    let pages = document.querySelector('#pages');
-    let read = document.querySelector('#read');
-    let unread = document.querySelector('#unread');
     let readOrUnread;
     if (read.checked === true) {
         readOrUnread = true;
-    } else if (unread === true) {
+    } else if (unread.checked === true) {
         readOrUnread = false;
     }
     let book = new Book(title.value, author.value, pages.value, readOrUnread);
@@ -63,12 +67,6 @@ submitButton.addEventListener('click', (event) => {
     entry.textContent = `${book.title} by ${book.author} is ${book.pages} pages long.
                 Read Status: ${book.read}.`;
     list.appendChild(entry);
-    title.textContent = '';
-    author.textContent = '';
-    pages.textContent = '';
-    read.checked = false;
-    unread.checked = false;
 });
 
-let cancel = document.querySelector('#cancel');
 cancel.addEventListener('click', () => dialogBox.close());
