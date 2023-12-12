@@ -68,7 +68,10 @@ function addBookToLibrary(book) {
     bookContainer.appendChild(deleteBtn);
     let statusBtn = document.createElement('button');
         statusBtn.classList.toggle('status');
-        statusBtn.textContent = 'Change read status';
+        statusBtn.textContent = `Read: ${book.read}`;
+        statusBtn.addEventListener('click', () => {
+            statusBtn.textContent = `Read: ${!book.read}`;
+        });
     bookContainer.appendChild(statusBtn)
     list.appendChild(bookContainer);
 }

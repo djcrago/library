@@ -31,6 +31,7 @@ li {
 
 button {
     padding: 10px;
+    cursor: pointer;
 }
 
 form {
@@ -63,6 +64,7 @@ form {
     color: rgba(119, 136, 153, 0.5);
 }
 
-.delete:hover {
+.delete:hover,
+.status:hover {
     background-color: rgb(203, 203, 203);
 }
