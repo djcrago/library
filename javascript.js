@@ -1,26 +1,20 @@
 let list = document.querySelector('#list');
-
 let addBook = document.querySelector('#add');
 let dialogBox = document.querySelector('#dialog');
-
 let title = document.querySelector('#title');
 let author = document.querySelector('#author');
 let pages = document.querySelector('#pages');
-
 let textInputs = [
     title,
     author,
     pages,
 ];
-
 let read = document.querySelector('#read');
 let unread = document.querySelector('#unread');
-
 let radioInputs = [
     read,
     unread,
 ];
-
 let submitButton = document.querySelector('#submit');
 let cancel = document.querySelector('#cancel');
 
@@ -52,7 +46,12 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary(book) {
+function addBookToLibrary(object) {
+    let book = new Book(title.value, author.value, pages.value, read.checked);
+    myLibrary.push(book);
+}
+
+function displayBook(book) {
     let bookContainer = document.createElement('div');
         bookContainer.classList.toggle('container');
     let newBook = document.createElement('li');
@@ -77,14 +76,15 @@ function addBookToLibrary(book) {
     list.appendChild(bookContainer);
 }
 
-myLibrary.forEach(addBookToLibrary);
+myLibrary.forEach(displayBook);
 
 addBook.addEventListener('click', () => dialogBox.showModal());
 
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();
-    let book = new Book(title.value, author.value, pages.value, read.checked);
-    addBookToLibrary(book);
+    addBookToLibrary();
+    list.textContent = '';
+    myLibrary.forEach(displayBook);
     textInputs.forEach((input) => input.value = '');
     radioInputs.forEach((input) => input.checked = false);
     dialogBox.close();    
