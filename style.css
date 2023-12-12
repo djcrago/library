@@ -12,7 +12,8 @@ body {
     align-items: flex-start;
 }
 
-ul {
+ul,
+form {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -30,4 +31,9 @@ li {
 
 button {
     padding: 10px;
+}
+
+form {
+    padding: 30px;
+    width: 400px;
 }
