@@ -60,6 +60,7 @@ function addBookToLibrary(book) {
                             pages long. Read Status: ${book.read}.`;
     bookContainer.appendChild(newBook);
     let deleteBtn = document.createElement('button');
+    deleteBtn.classList.toggle('delete');
     deleteBtn.textContent = 'Delete';
     bookContainer.appendChild(deleteBtn);
     list.appendChild(bookContainer);
