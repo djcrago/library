@@ -58,7 +58,8 @@ submitButton.addEventListener('click', (event) => {
     } else if (unread === true) {
         readOrUnread = false;
     }
-    console.log(`${title.value} by ${author.value} is ${pages.value} pages long. Read Status: ${readOrUnread}`)
+    let book = new Book(title.value, author.value, pages.value, readOrUnread);
+    console.log(book);
 });
 
 // title, author, pages, read, unread
