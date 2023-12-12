@@ -42,3 +42,8 @@ form {
 #dialog {
     margin: auto;
 }
+
+.container {
+    display: flex;
+    gap: 8px;
+}

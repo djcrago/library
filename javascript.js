@@ -53,13 +53,16 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(book) {
+    let bookContainer = document.createElement('div');
+    bookContainer.classList.toggle('container');
     let newBook = document.createElement('li');
     newBook.textContent = `${book.title} by ${book.author} is ${book.pages}
                             pages long. Read Status: ${book.read}.`;
-    list.appendChild(newBook);
+    bookContainer.appendChild(newBook);
     let deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
-    list.appendChild(deleteBtn);
+    bookContainer.appendChild(deleteBtn);
+    list.appendChild(bookContainer);
 }
 
 myLibrary.forEach(addBookToLibrary);
