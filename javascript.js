@@ -63,10 +63,11 @@ submitButton.addEventListener('click', (event) => {
     entry.textContent = `${book.title} by ${book.author} is ${book.pages} pages long.
                 Read Status: ${book.read}.`;
     list.appendChild(entry);
-
-    console.log(book);
-    console.log(entry);
-
+    title.textContent = '';
+    author.textContent = '';
+    pages.textContent = '';
+    read.checked = false;
+    unread.checked = false;
 });
 
 // title, author, pages, read, unread
