@@ -59,10 +59,14 @@ submitButton.addEventListener('click', (event) => {
         readOrUnread = false;
     }
     let book = new Book(title.value, author.value, pages.value, readOrUnread);
-    let entry = `${book.title} by ${book.author} is ${book.pages} pages long.
+    let entry = document.createElement('li');
+    entry.textContent = `${book.title} by ${book.author} is ${book.pages} pages long.
                 Read Status: ${book.read}.`;
+    list.appendChild(entry);
+
     console.log(book);
     console.log(entry);
+
 });
 
 // title, author, pages, read, unread
