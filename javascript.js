@@ -57,6 +57,9 @@ function addBookToLibrary(book) {
     newBook.textContent = `${book.title} by ${book.author} is ${book.pages}
                             pages long. Read Status: ${book.read}.`;
     list.appendChild(newBook);
+    let deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    list.appendChild(deleteBtn);
 }
 
 myLibrary.forEach(addBookToLibrary);
