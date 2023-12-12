@@ -30,8 +30,8 @@ let list = document.querySelector('#list');
 
 myLibrary.forEach((object) => {
     let book = document.createElement('li');
-    book.textContent = `${object.title} by ${object.author} is 
-                        ${object.pages} long. Read Status: ${object.read}.`;
+    book.textContent = `${object.title} by ${object.author} is ${object.pages}
+                        pages long. Read Status: ${object.read}.`;
     list.appendChild(book);
 });
 
@@ -59,7 +59,10 @@ submitButton.addEventListener('click', (event) => {
         readOrUnread = false;
     }
     let book = new Book(title.value, author.value, pages.value, readOrUnread);
+    let entry = `${book.title} by ${book.author} is ${book.pages} pages long.
+                Read Status: ${book.read}.`;
     console.log(book);
+    console.log(entry);
 });
 
 // title, author, pages, read, unread
