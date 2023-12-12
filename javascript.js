@@ -1,20 +1,26 @@
 let list = document.querySelector('#list');
+
 let addBook = document.querySelector('#add');
 let dialogBox = document.querySelector('#dialog');
+
 let title = document.querySelector('#title');
 let author = document.querySelector('#author');
 let pages = document.querySelector('#pages');
+
 let textInputs = [
     title,
     author,
     pages,
 ];
+
 let read = document.querySelector('#read');
 let unread = document.querySelector('#unread');
+
 let radioInputs = [
     read,
     unread,
 ];
+
 let submitButton = document.querySelector('#submit');
 let cancel = document.querySelector('#cancel');
 
@@ -55,8 +61,15 @@ function displayBook(book) {
     let bookContainer = document.createElement('div');
         bookContainer.classList.toggle('container');
     let newBook = document.createElement('li');
-        newBook.textContent = `${book.title} by ${book.author} is ${book.pages}
-                                pages long.`;
+        let title = document.createElement('p');
+            title.textContent = `Title: ${book.title}`;
+        newBook.appendChild(title);
+        let author = document.createElement('p');
+            author.textContent = `Author: ${book.author}`;
+        newBook.appendChild(author);
+        let pages = document.createElement('p');
+            pages.textContent = `Number of Pages: ${book.pages}`;
+        newBook.appendChild(pages);
     bookContainer.appendChild(newBook);
     let statusBtn = document.createElement('button');
         statusBtn.classList.toggle('status');
