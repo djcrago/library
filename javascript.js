@@ -59,6 +59,14 @@ function addBookToLibrary(book) {
         newBook.textContent = `${book.title} by ${book.author} is ${book.pages}
                                 pages long. Read Status: ${book.read}.`;
     bookContainer.appendChild(newBook);
+    let statusBtn = document.createElement('button');
+        statusBtn.classList.toggle('status');
+        statusBtn.textContent = `Read: ${book.read}`;
+        statusBtn.addEventListener('click', () => {
+            book.read = !book.read;
+            statusBtn.textContent = `Read: ${!book.read}`;
+        });
+    bookContainer.appendChild(statusBtn)    
     let deleteBtn = document.createElement('button');
         deleteBtn.classList.toggle('delete');
         deleteBtn.textContent = 'Delete';
@@ -66,13 +74,6 @@ function addBookToLibrary(book) {
             list.removeChild(bookContainer);
         });
     bookContainer.appendChild(deleteBtn);
-    let statusBtn = document.createElement('button');
-        statusBtn.classList.toggle('status');
-        statusBtn.textContent = `Read: ${book.read}`;
-        statusBtn.addEventListener('click', () => {
-            statusBtn.textContent = `Read: ${!book.read}`;
-        });
-    bookContainer.appendChild(statusBtn)
     list.appendChild(bookContainer);
 }
 
