@@ -18,7 +18,6 @@ form {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 16px;
-    align-items: flex-start;
 }
 
 li {
@@ -46,6 +45,7 @@ form {
 .container {
     display: flex;
     gap: 8px;
+    align-items: center;
 }
 
 .delete {
@@ -53,4 +53,8 @@ form {
     background-color: rgb(240, 240, 240);
     border: none;
     border-radius: 8px;
+}
+
+.delete:hover {
+    background-color: rgb(203, 203, 203);
 }
