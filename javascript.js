@@ -58,6 +58,8 @@ submitButton.addEventListener('click', (event) => {
     title.value = '';
     author.value = '';
     pages.value = '';
+    read.checked = false;
+    unread.checked = false;
     dialogBox.close();    
 });
 
