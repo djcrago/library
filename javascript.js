@@ -75,7 +75,7 @@ function displayBook(book) {
             statusBtn.classList.toggle('status');
             statusBtn.textContent = `Read: ${book.read}`;
             statusBtn.addEventListener('click', () => {
-                statusBtn.textContent = `Read: ${!book.read}`;            
+                statusBtn.textContent = `Read: ${!book.read}`;
                 book.read = !book.read;
             });
         bookContainer.appendChild(statusBtn)    
