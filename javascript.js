@@ -55,6 +55,9 @@ submitButton.addEventListener('click', (event) => {
     event.preventDefault();
     let book = new Book(title.value, author.value, pages.value, read.checked);
     addBookToLibrary(book);
+    title.value = '';
+    author.value = '';
+    pages.value = '';
     dialogBox.close();    
 });
 
