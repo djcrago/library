@@ -60,34 +60,34 @@ function addBookToLibrary(object) {
 function displayBook(book) {
     let bookContainer = document.createElement('div');
         bookContainer.classList.toggle('container');
-    let newBook = document.createElement('li');
-        let title = document.createElement('p');
-            title.textContent = `Title: ${book.title}`;
-        newBook.appendChild(title);
-        let author = document.createElement('p');
-            author.textContent = `Author: ${book.author}`;
-        newBook.appendChild(author);
-        let pages = document.createElement('p');
-            pages.textContent = `Number of Pages: ${book.pages}`;
-        newBook.appendChild(pages);
-    bookContainer.appendChild(newBook);
-    let statusBtn = document.createElement('button');
-        statusBtn.classList.toggle('status');
-        statusBtn.textContent = `Read: ${book.read}`;
-        statusBtn.addEventListener('click', () => {
-            statusBtn.textContent = `Read: ${!book.read}`;            
-            book.read = !book.read;
-        });
-    bookContainer.appendChild(statusBtn)    
-    let deleteBtn = document.createElement('button');
-        deleteBtn.classList.toggle('delete');
-        deleteBtn.textContent = 'Delete';
-        deleteBtn.addEventListener('click', () => {
-            list.removeChild(bookContainer);
-            let deletedBook = myLibrary.indexOf(book);
-            myLibrary.splice(deletedBook, 1);
-        });
-    bookContainer.appendChild(deleteBtn);
+        let newBook = document.createElement('li');
+            let title = document.createElement('p');
+                title.textContent = `Title: ${book.title}`;
+            newBook.appendChild(title);
+            let author = document.createElement('p');
+                author.textContent = `Author: ${book.author}`;
+            newBook.appendChild(author);
+            let pages = document.createElement('p');
+                pages.textContent = `Number of Pages: ${book.pages}`;
+            newBook.appendChild(pages);
+        bookContainer.appendChild(newBook);
+        let statusBtn = document.createElement('button');
+            statusBtn.classList.toggle('status');
+            statusBtn.textContent = `Read: ${book.read}`;
+            statusBtn.addEventListener('click', () => {
+                statusBtn.textContent = `Read: ${!book.read}`;            
+                book.read = !book.read;
+            });
+        bookContainer.appendChild(statusBtn)    
+        let deleteBtn = document.createElement('button');
+            deleteBtn.classList.toggle('delete');
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.addEventListener('click', () => {
+                list.removeChild(bookContainer);
+                let deletedBook = myLibrary.indexOf(book);
+                myLibrary.splice(deletedBook, 1);
+            });
+        bookContainer.appendChild(deleteBtn);
     list.appendChild(bookContainer);
 }
 

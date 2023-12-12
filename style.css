@@ -35,6 +35,7 @@ li {
     color: lightslategray;
     padding: 15px;
     border-radius: 8px;
+    width: 300px;
 }
 
 button {
