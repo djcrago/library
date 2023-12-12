@@ -70,4 +70,5 @@ submitButton.addEventListener('click', (event) => {
     unread.checked = false;
 });
 
-// title, author, pages, read, unread
+let cancel = document.querySelector('#cancel');
+cancel.addEventListener('click', () => dialogBox.close());
