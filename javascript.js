@@ -19,6 +19,13 @@ const myLibrary = [
     },
 ];
 
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
+
 let list = document.querySelector('#list');
 
 myLibrary.forEach((object) => {
@@ -37,6 +44,21 @@ newBook.addEventListener('click', () => {
 
 let submitButton = document.querySelector('#submit');
 
-submitButton.addEventListener('click', () => {
+submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
     dialogBox.close();
+    let title = document.querySelector('#title');
+    let author = document.querySelector('#author');
+    let pages = document.querySelector('#pages');
+    let read = document.querySelector('#read');
+    let unread = document.querySelector('#unread');
+    let readOrUnread;
+    if (read.checked === true) {
+        readOrUnread = true;
+    } else if (unread === true) {
+        readOrUnread = false;
+    }
+    console.log(`${title.value} by ${author.value} is ${pages.value} pages long. Read Status: ${readOrUnread}`)
 });
+
+// title, author, pages, read, unread
