@@ -62,3 +62,15 @@ function addBookToDisplay() {
         bookDisplay.appendChild(book);
     });
 }
+
+
+
+const dialog = document.querySelector('dialog');
+
+const addBookButton = document.querySelector('#add-book-button');
+
+addBookButton.addEventListener('click', () => dialog.showModal());
+
+const cancelButton = document.querySelector('#cancel');
+
+cancelButton.addEventListener('click', () => dialog.close());

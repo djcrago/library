@@ -8,42 +8,46 @@
     <script src="javascript.js" defer></script>
 </head>
 <body>
-    <div class="form-container">
-        <form action="" method="post">
-            <div>
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title">
-            </div>
-            <div>
-                <label for="author">Author:</label>
-                <input type="text" id="author" name="author">
-            </div>
-            <div>
-                <label for="description">Description:</label>
-                <input type="text" id="description" name="description">
-            </div>
-            <div>
-                <label for="pages">Pages:</label>
-                <input type="number" id="pages" name="pages">
-            </div>
-            <fieldset>
-                <legend>Read:</legend>
+    <button type="button" id="add-book-button">+</button>
+    <dialog>
+        <div class="form-container">
+            <form action="" method="post">
                 <div>
-                    <label for="yes">Yes</label>
-                    <input type="radio" id="yes" name="read" value="Yes" class="read">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title">
                 </div>
                 <div>
-                    <label for="no">No</label>
-                    <input type="radio" id="no" name="read" value="No" checked class="read">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author">
                 </div>
                 <div>
-                    <label for="incomplete">Incomplete</label>
-                    <input type="radio" id="incomplete" name="read" value="Incomplete" class="read">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description">
                 </div>
-            </fieldset>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+                <div>
+                    <label for="pages">Pages:</label>
+                    <input type="number" id="pages" name="pages">
+                </div>
+                <fieldset>
+                    <legend>Read:</legend>
+                    <div>
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="yes" name="read" value="Yes" class="read">
+                    </div>
+                    <div>
+                        <label for="no">No</label>
+                        <input type="radio" id="no" name="read" value="No" checked class="read">
+                    </div>
+                    <div>
+                        <label for="incomplete">Incomplete</label>
+                        <input type="radio" id="incomplete" name="read" value="Incomplete" class="read">
+                    </div>
+                </fieldset>
+                <button type="submit">Submit</button>
+                <button type="button" id="cancel">Cancel</button>
+            </form>
+        </div>
+    </dialog>
     <div class="book-display">
 
     </div>
