@@ -23,10 +23,12 @@ const read = document.querySelectorAll('.read');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    console.log(title.value, author.value, description.value, pages.value);
+    let readStatus;
     read.forEach((status) => {
         if(status.checked) {
-            console.log(status.value);
+            readStatus = status.value;
         };
     });
+    let newBook = new Book(title.value, author.value, description.value, pages.value, readStatus);
+    myLibrary.push(newBook);
 });
