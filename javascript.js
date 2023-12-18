@@ -34,6 +34,7 @@ form.addEventListener('submit', (event) => {
     myLibrary.push(newBook);
     bookDisplay.textContent = '';
     addBookToDisplay.call(myLibrary);
+    dialog.close();
 });
 
 
@@ -43,22 +44,30 @@ const bookDisplay = document.querySelector('.book-display');
 function addBookToDisplay() {
     this.forEach((libraryBook) => {
         let book = document.createElement('div');
+        let bookDetails = document.createElement('div');
         let title = document.createElement('p');
         let author = document.createElement('p');
         let description = document.createElement('p');
         let pages = document.createElement('p');       
-        let read = document.createElement('p'); 
+        let read = document.createElement('p');
+        let removeButton = document.createElement('button');
         book.classList.toggle('book');
         title.textContent = `Title: ${libraryBook.title} `;
         author.textContent = `Author: ${libraryBook.author} `;
         description.textContent = `Description: ${libraryBook.description} `;
         pages.textContent = `Number of Pages: ${libraryBook.pages} `;
         read.textContent = `Read: ${libraryBook.read} `;
-        book.appendChild(title);
-        book.appendChild(author);
-        book.appendChild(description);
-        book.appendChild(pages);
-        book.appendChild(read);
+        removeButton.textContent = 'Remove';
+        bookDetails.appendChild(title);
+        bookDetails.appendChild(author);
+        bookDetails.appendChild(description);
+        bookDetails.appendChild(pages);
+        bookDetails.appendChild(read);
+        book.appendChild(bookDetails);
+        book.appendChild(removeButton);
+        removeButton.addEventListener('click', () => {
+            bookDisplay.removeChild(book);
+        });               
         bookDisplay.appendChild(book);
     });
 }
