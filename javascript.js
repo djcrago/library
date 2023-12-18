@@ -8,8 +8,16 @@ function Book(title, author, description, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
+function addBookToLibrary() {
+    let readStatus;
+    read.forEach((status) => {
+        if(status.checked) {
+            readStatus = status.value;
+        };
+    });
+    let newArrayBook = new Book(title.value, author.value, description.value, 
+    pages.value, readStatus);
+    myLibrary.push(newArrayBook);
 }
 
 
@@ -23,15 +31,7 @@ const read = document.querySelectorAll('.read');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    let readStatus;
-    read.forEach((status) => {
-        if(status.checked) {
-            readStatus = status.value;
-        };
-    });
-    let newBook = new Book(title.value, author.value, description.value, 
-    pages.value, readStatus);
-    myLibrary.push(newBook);
+    addBookToLibrary();
     bookDisplay.textContent = '';
     addBookToDisplay.call(myLibrary);
     dialog.close();
@@ -53,7 +53,7 @@ function resetForm() {
 const bookDisplay = document.querySelector('.book-display');
 
 function addBookToDisplay() {
-    myLibrary.forEach((libraryBook) => {
+    myLibrary.forEach((displayBook) => {
         let book = document.createElement('div');
         let title = document.createElement('p');
         let author = document.createElement('p');
@@ -62,11 +62,12 @@ function addBookToDisplay() {
         let read = document.createElement('p');
         let removeButton = document.createElement('button');
         book.classList.toggle('book');
-        title.textContent = `Title: ${libraryBook.title} `;
-        author.textContent = `Author: ${libraryBook.author} `;
-        description.textContent = `Description: ${libraryBook.description} `;
-        pages.textContent = `Number of Pages: ${libraryBook.pages} `;
-        read.textContent = `Read: ${libraryBook.read} `;
+        title.classList.toggle('title');
+        title.textContent = `Title: ${displayBook.title} `;
+        author.textContent = `Author: ${displayBook.author} `;
+        description.textContent = `Description: ${displayBook.description} `;
+        pages.textContent = `Number of Pages: ${displayBook.pages} `;
+        read.textContent = `Read: ${displayBook.read} `;
         removeButton.textContent = 'Remove';
         book.appendChild(title);
         book.appendChild(author);
@@ -75,9 +76,14 @@ function addBookToDisplay() {
         book.appendChild(read);
         book.appendChild(removeButton);
         removeButton.addEventListener('click', () => {
-            bookDisplay.removeChild(book);
-            let index = myLibrary.indexOf(title);
+            let index;
+            myLibrary.forEach((arrayBook) => {
+                if (displayBook.title === arrayBook.title) {
+                    index = myLibrary.indexOf(arrayBook);
+                }
+            });
             myLibrary.splice(index, 1);
+            bookDisplay.removeChild(book);
         });               
         bookDisplay.appendChild(book);
     });
@@ -93,4 +99,7 @@ addBookButton.addEventListener('click', () => dialog.showModal());
 
 const cancelButton = document.querySelector('#cancel');
 
-cancelButton.addEventListener('click', () => dialog.close());
+cancelButton.addEventListener('click', () => {
+    dialog.close();
+    resetForm();
+});
