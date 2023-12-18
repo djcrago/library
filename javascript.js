@@ -11,3 +11,4 @@ function Book(title, author, description, pages, read) {
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
+
