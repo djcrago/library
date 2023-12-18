@@ -21,6 +21,16 @@ const description = document.querySelector('#description');
 const pages = document.querySelector('#pages');
 const read = document.querySelectorAll('.read');
 
+function resetForm() {
+    title.textContent = '';
+    author.textContent = '';
+    description.textContent = '';
+    pages.textContent = '';
+    for(let i = 0; i < read.length; i++) {
+        read[i].checked = false;
+    }
+}
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     let readStatus;
@@ -35,6 +45,7 @@ form.addEventListener('submit', (event) => {
     bookDisplay.textContent = '';
     addBookToDisplay.call(myLibrary);
     dialog.close();
+    resetForm();
 });
 
 
@@ -42,9 +53,8 @@ form.addEventListener('submit', (event) => {
 const bookDisplay = document.querySelector('.book-display');
 
 function addBookToDisplay() {
-    this.forEach((libraryBook) => {
+    myLibrary.forEach((libraryBook) => {
         let book = document.createElement('div');
-        let bookDetails = document.createElement('div');
         let title = document.createElement('p');
         let author = document.createElement('p');
         let description = document.createElement('p');
@@ -58,15 +68,16 @@ function addBookToDisplay() {
         pages.textContent = `Number of Pages: ${libraryBook.pages} `;
         read.textContent = `Read: ${libraryBook.read} `;
         removeButton.textContent = 'Remove';
-        bookDetails.appendChild(title);
-        bookDetails.appendChild(author);
-        bookDetails.appendChild(description);
-        bookDetails.appendChild(pages);
-        bookDetails.appendChild(read);
-        book.appendChild(bookDetails);
+        book.appendChild(title);
+        book.appendChild(author);
+        book.appendChild(description);
+        book.appendChild(pages);
+        book.appendChild(read);
         book.appendChild(removeButton);
         removeButton.addEventListener('click', () => {
             bookDisplay.removeChild(book);
+            let index = myLibrary.indexOf(title);
+            myLibrary.splice(index, 1);
         });               
         bookDisplay.appendChild(book);
     });
