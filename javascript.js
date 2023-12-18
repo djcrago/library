@@ -21,16 +21,6 @@ const description = document.querySelector('#description');
 const pages = document.querySelector('#pages');
 const read = document.querySelectorAll('.read');
 
-function resetForm() {
-    title.textContent = '';
-    author.textContent = '';
-    description.textContent = '';
-    pages.textContent = '';
-    for(let i = 0; i < read.length; i++) {
-        read[i].checked = false;
-    }
-}
-
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     let readStatus;
@@ -47,6 +37,16 @@ form.addEventListener('submit', (event) => {
     dialog.close();
     resetForm();
 });
+
+function resetForm() {
+    title.value = '';
+    author.value = '';
+    description.value = '';
+    pages.value = '';
+    for(let i = 0; i < read.length; i++) {
+        read[i].checked = false;
+    };
+}
 
 
 
