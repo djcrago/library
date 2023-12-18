@@ -29,6 +29,32 @@ form.addEventListener('submit', (event) => {
             readStatus = status.value;
         };
     });
-    let newBook = new Book(title.value, author.value, description.value, pages.value, readStatus);
+    let newBook = new Book(title.value, author.value, description.value, 
+    pages.value, readStatus);
     myLibrary.push(newBook);
+    addBookToDisplay.call(myLibrary);
 });
+
+
+
+const bookDisplay = document.querySelector('.book-display');
+
+function addBookToDisplay() {
+    this.forEach((libraryBook) => {
+        let book = document.createElement('div');
+        let title = document.createElement('span');
+        let author = document.createElement('span');
+        let description = document.createElement('span');
+        let pages = document.createElement('span');        
+        book.classList.toggle('book');
+        title.textContent = `Title: ${libraryBook.title}`;
+        author.textContent = `Author: ${libraryBook.author}`;
+        description.textContent = `Description: ${libraryBook.description}`;
+        pages.textContent = `Number of Pages: ${libraryBook.pages}`;
+        book.appendChild(title);
+        book.appendChild(author);
+        book.appendChild(description);
+        book.appendChild(pages);
+        bookDisplay.appendChild(book);
+    });
+}
