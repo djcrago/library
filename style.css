@@ -46,8 +46,8 @@ h1 {
 
 dialog {
     margin: auto;
-    padding: 16px;
-    height: 33vh;
+    padding: 16px 16px 24px 16px;
+    height: max-content;
     width: 33vw;
 }
 
@@ -58,13 +58,16 @@ form {
     width: 100%;
 }
 
-input {
+input[type="text"],
+input[type="number"] {
     width: 100%;
+    padding: 2px;
 }
 
-fieldset {
+.read {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 8px;
+}
+
+.read > input {
+    margin: 0 auto;
 }
