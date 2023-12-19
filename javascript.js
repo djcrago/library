@@ -7,6 +7,14 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.changeStatus = function() {
+    if (this.read === 'yes') {
+        return this.read = 'no';
+    } else {
+        return this.read = 'yes';
+    }
+}
+
 function addBookToLibrary() {
     let readStatus;
     read.forEach((status) => {
@@ -56,29 +64,19 @@ const bookDisplay = document.querySelector('.book-display');
 function addBookToDisplay() {
     myLibrary.forEach((displayBook) => {
         let book = document.createElement('div');
-        let title = document.createElement('p');
-        let author = document.createElement('p');
-        let pages = document.createElement('p');       
-        let read = document.createElement('button');
-        let removeButton = document.createElement('button');
-        book.classList.toggle('book');
-        title.textContent = `Title: ${displayBook.title} `;
-        author.textContent = `Author: ${displayBook.author} `;
-        pages.textContent = `Number of Pages: ${displayBook.pages} `;
-        read.textContent = `Read: ${displayBook.read} `;
-        removeButton.textContent = 'Remove';
-        book.appendChild(title);
-        book.appendChild(author);
-        book.appendChild(pages);
-        book.appendChild(read);
-        book.appendChild(removeButton);
+            let title = document.createElement('p');
+            let author = document.createElement('p');
+            let pages = document.createElement('p');       
+            let read = document.createElement('button');
+            let removeButton = document.createElement('button');
+                title.textContent = `Title: ${displayBook.title} `;
+                author.textContent = `Author: ${displayBook.author} `;
+                pages.textContent = `Number of Pages: ${displayBook.pages} `;
+                read.textContent = readStatus.call(displayBook);
+                removeButton.textContent = 'Remove';
         read.addEventListener('click', () => {
-            if (displayBook.read === 'Yes') {
-                displayBook.read = 'No';
-            } else {
-                displayBook.read = 'Yes';
-            }
-            read.textContent = `Read: ${displayBook.read}`;           
+            displayBook.changeStatus();
+            read.textContent = readStatus.call(displayBook);
         })
         removeButton.addEventListener('click', () => {
             let index;
@@ -90,8 +88,21 @@ function addBookToDisplay() {
             myLibrary.splice(index, 1);
             bookDisplay.removeChild(book);
         });
+        book.appendChild(title);
+        book.appendChild(author);
+        book.appendChild(pages);
+        book.appendChild(read);
+        book.appendChild(removeButton);        
         bookDisplay.appendChild(book);
     });
+}
+
+function readStatus() {
+    if (this.read === 'yes') {
+        return 'Read';
+    } else {
+        return 'Not Read';
+    };    
 }
 
 
