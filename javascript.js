@@ -74,20 +74,20 @@ function addBookToDisplay() {
                 pages.textContent = `Number of Pages: ${displayBook.pages} `;
                 read.textContent = readStatus.call(displayBook);
                 removeButton.textContent = 'Remove';
-        read.addEventListener('click', () => {
-            displayBook.changeStatus();
-            read.textContent = readStatus.call(displayBook);
-        })
-        removeButton.addEventListener('click', () => {
-            let index;
-            myLibrary.forEach((arrayBook) => {
-                if (displayBook.title === arrayBook.title) {
-                    index = myLibrary.indexOf(arrayBook);
-                }
-            });
-            myLibrary.splice(index, 1);
-            bookDisplay.removeChild(book);
-        });
+                    read.addEventListener('click', () => {
+                        displayBook.changeStatus();
+                        read.textContent = readStatus.call(displayBook);
+                    });
+                    removeButton.addEventListener('click', () => {
+                        let index;
+                        myLibrary.forEach((arrayBook) => {
+                            if (displayBook.title === arrayBook.title) {
+                                index = myLibrary.indexOf(arrayBook);
+                            }
+                        });
+                        myLibrary.splice(index, 1);
+                        bookDisplay.removeChild(book);
+                    });
         book.appendChild(title);
         book.appendChild(author);
         book.appendChild(pages);
