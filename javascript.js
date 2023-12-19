@@ -66,6 +66,8 @@ function addBookToDisplay() {
                 pages.textContent = `Number of Pages: ${displayBook.pages} `;
                 read.textContent = readStatus.call(displayBook);
                 removeButton.textContent = 'Remove';
+                book.classList.toggle('book');
+                read.classList.toggle('read-button');
                     read.addEventListener('click', () => {
                         displayBook.changeStatus();
                         read.textContent = readStatus.call(displayBook);
