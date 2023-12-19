@@ -29,14 +29,14 @@ const description = document.querySelector('#description');
 const pages = document.querySelector('#pages');
 const read = document.querySelectorAll('.read');
 
-form.addEventListener('submit', (event) => {
+function submitForm(event) {
     event.preventDefault();
     addBookToLibrary();
     bookDisplay.textContent = '';
     addBookToDisplay.call(myLibrary);
     dialog.close();
     resetForm();
-});
+}
 
 function resetForm() {
     title.value = '';
@@ -47,6 +47,10 @@ function resetForm() {
         read[i].checked = false;
     };
 }
+
+form.addEventListener('submit', submitForm);
+
+
 
 
 
@@ -69,7 +73,7 @@ function addBookToDisplay() {
         pages.textContent = `Number of Pages: ${displayBook.pages} `;
         read.textContent = `Read: ${displayBook.read} `;
         removeButton.textContent = 'Remove';
-        statusButton.textContent = 'Change read status'
+        statusButton.textContent = 'Change Read Status';
         book.appendChild(title);
         book.appendChild(author);
         book.appendChild(description);
@@ -102,12 +106,10 @@ function addBookToDisplay() {
 
 
 const dialog = document.querySelector('dialog');
-
 const addBookButton = document.querySelector('#add-book-button');
+const cancelButton = document.querySelector('#cancel');
 
 addBookButton.addEventListener('click', () => dialog.showModal());
-
-const cancelButton = document.querySelector('#cancel');
 
 cancelButton.addEventListener('click', () => {
     dialog.close();
