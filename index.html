@@ -9,40 +9,32 @@
 </head>
 <body>
     <h1>Library</h1>
-    <button type="button" id="add-book-button">+</button>
-    <dialog>
-        <div class="form-container">
-            <form action="" method="post">
-                <div>
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required>
-                </div>
-                <div>
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" name="author">
-                </div>
-                <div>
-                    <label for="pages">Pages:</label>
-                    <input type="number" id="pages" name="pages">
-                </div>
-                <fieldset>
-                    <legend>Read:</legend>
+    <div class="display">
+        <button type="button" id="add-book-button">+</button>
+        <p class="add-book">Add Book</p>
+        <dialog>
+                <form action="" method="post">
                     <div>
-                        <label for="yes">Yes</label>
-                        <input type="radio" id="yes" name="read" value="yes" class="read" required>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
                     </div>
                     <div>
-                        <label for="no">No</label>
-                        <input type="radio" id="no" name="read" value="no" class="read" required>
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author">
                     </div>
-                </fieldset>
-                <button type="submit">Submit</button>
-                <button type="button" id="cancel">Cancel</button>
-            </form>
-        </div>
-    </dialog>
-    <div class="book-display">
-
+                    <div>
+                        <label for="pages">Pages:</label>
+                        <input type="number" id="pages" name="pages">
+                    </div>
+                    <div>
+                        <label for="read">Have you read this book?</label>
+                        <input type="checkbox" name="read" id="read">
+                    </div>
+                    <button type="submit">Submit</button>
+                    <button type="button" id="cancel">Cancel</button>
+                </form>
+        </dialog>
+        <div class="book-display"></div>
     </div>
 </body>
 </html>

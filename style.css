@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    padding: 32px 0px;
+    background-color: rgb(185, 214, 223);
+    color: rgb(50, 50, 50);
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+}
+
+#add-book-button {
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+    color: rgb(50, 50, 50);
+    background-color: white;
+    border-radius: 8px;
+}
+
+#add-book-button:hover {
+    background-color: rgb(213, 231, 237);
+}
+
+#add-book-button:active {
+    background-color: rgb(230, 250, 255);
+}
+
+.add-book {
+    font-size: 1.5rem;
+}
+
+dialog {
+    margin: auto;
+    padding: 16px;
+    height: 33vh;
+    width: 33vw;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+}
+
+fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px;
+}

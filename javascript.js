@@ -8,22 +8,16 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.changeStatus = function() {
-    if (this.read === 'yes') {
-        return this.read = 'no';
+    if (this.read === true) {
+        return this.read = false;
     } else {
-        return this.read = 'yes';
+        return this.read = true;
     }
 }
 
 function addBookToLibrary() {
-    let readStatus;
-    read.forEach((status) => {
-        if(status.checked) {
-            readStatus = status.value;
-        };
-    });
     let newArrayBook = new Book(title.value, author.value,
-    pages.value, readStatus);
+    pages.value, read.checked);
     myLibrary.push(newArrayBook);
 }
 
@@ -33,7 +27,7 @@ const form = document.querySelector('form');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
-const read = document.querySelectorAll('.read');
+const read = document.querySelector('#read');
 
 function submitForm(event) {
     event.preventDefault();
@@ -48,9 +42,7 @@ function resetForm() {
     title.value = '';
     author.value = '';
     pages.value = '';
-    for(let i = 0; i < read.length; i++) {
-        read[i].checked = false;
-    };
+    read.checked = false;
 }
 
 form.addEventListener('submit', submitForm);
@@ -98,7 +90,7 @@ function addBookToDisplay() {
 }
 
 function readStatus() {
-    if (this.read === 'yes') {
+    if (this.read === true) {
         return 'Read';
     } else {
         return 'Not Read';
