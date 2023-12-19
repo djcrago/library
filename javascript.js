@@ -61,20 +61,22 @@ function addBookToDisplay() {
         let pages = document.createElement('p');       
         let read = document.createElement('p');
         let removeButton = document.createElement('button');
+        let statusButton = document.createElement('button');
         book.classList.toggle('book');
-        title.classList.toggle('title');
         title.textContent = `Title: ${displayBook.title} `;
         author.textContent = `Author: ${displayBook.author} `;
         description.textContent = `Description: ${displayBook.description} `;
         pages.textContent = `Number of Pages: ${displayBook.pages} `;
         read.textContent = `Read: ${displayBook.read} `;
         removeButton.textContent = 'Remove';
+        statusButton.textContent = 'Change read status'
         book.appendChild(title);
         book.appendChild(author);
         book.appendChild(description);
         book.appendChild(pages);
         book.appendChild(read);
         book.appendChild(removeButton);
+        book.appendChild(statusButton);
         removeButton.addEventListener('click', () => {
             let index;
             myLibrary.forEach((arrayBook) => {
@@ -84,7 +86,15 @@ function addBookToDisplay() {
             });
             myLibrary.splice(index, 1);
             bookDisplay.removeChild(book);
-        });               
+        });
+        statusButton.addEventListener('click', () => {
+            if (displayBook.read === 'Yes') {
+                displayBook.read = 'No';
+            } else {
+                displayBook.read = 'Yes';
+            }
+            read.textContent = `Read: ${displayBook.read}`;
+        });
         bookDisplay.appendChild(book);
     });
 }
