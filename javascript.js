@@ -1,21 +1,10 @@
 const myLibrary = [];
 
-function Book(title, author, description, pages, read) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
-    this.description = description;
     this.pages = pages;
     this.read = read;
-}
-
-Book.prototype.changeReadStatus = function() {
-    console.log(displayBook);
-    if (displayBook.read === 'Yes') {
-        displayBook.read = 'No';
-    } else {
-        displayBook.read = 'Yes';
-    }
-    read.textContent = `Read: ${displayBook.read}`;
 }
 
 function addBookToLibrary() {
@@ -25,7 +14,7 @@ function addBookToLibrary() {
             readStatus = status.value;
         };
     });
-    let newArrayBook = new Book(title.value, author.value, description.value, 
+    let newArrayBook = new Book(title.value, author.value,
     pages.value, readStatus);
     myLibrary.push(newArrayBook);
 }
@@ -35,7 +24,6 @@ function addBookToLibrary() {
 const form = document.querySelector('form');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
-const description = document.querySelector('#description');
 const pages = document.querySelector('#pages');
 const read = document.querySelectorAll('.read');
 
@@ -51,7 +39,6 @@ function submitForm(event) {
 function resetForm() {
     title.value = '';
     author.value = '';
-    description.value = '';
     pages.value = '';
     for(let i = 0; i < read.length; i++) {
         read[i].checked = false;
@@ -71,20 +58,17 @@ function addBookToDisplay() {
         let book = document.createElement('div');
         let title = document.createElement('p');
         let author = document.createElement('p');
-        let description = document.createElement('p');
         let pages = document.createElement('p');       
         let read = document.createElement('button');
         let removeButton = document.createElement('button');
         book.classList.toggle('book');
         title.textContent = `Title: ${displayBook.title} `;
         author.textContent = `Author: ${displayBook.author} `;
-        description.textContent = `Description: ${displayBook.description} `;
         pages.textContent = `Number of Pages: ${displayBook.pages} `;
         read.textContent = `Read: ${displayBook.read} `;
         removeButton.textContent = 'Remove';
         book.appendChild(title);
         book.appendChild(author);
-        book.appendChild(description);
         book.appendChild(pages);
         book.appendChild(read);
         book.appendChild(removeButton);
