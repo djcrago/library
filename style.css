@@ -50,9 +50,9 @@ h1 {
 
 dialog {
     margin: auto;
-    padding: 16px 16px 24px 16px;
+    padding: 24px 24px 32px 24px;
     height: max-content;
-    width: 33vw;
+    width: 350px;
 }
 
 form {
@@ -78,7 +78,7 @@ input[type="number"] {
 
 .book-display {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100vw;
     padding: 0 10vw;
@@ -89,13 +89,13 @@ input[type="number"] {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 8px;
+    gap: 12px;
     background-color: rgba(215, 246, 255, 0.55);
     padding: 12px;
     border-radius: 8px;
     font-size: 1.1rem;
     border: 1px solid rgb(122, 122, 122);
-    width: 25vw;
+    width: 250px;
 }
 
 .book > button {
