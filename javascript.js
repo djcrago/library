@@ -1,17 +1,19 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-Book.prototype.changeStatus = function() {
-    if (this.read === true) {
-        return this.read = false;
-    } else {
-        return this.read = true;
+    changeStatus() {
+        if (this.read === true) {
+            return this.read = false;
+        } else {
+            return this.read = true;
+        }
     }
 }
 
@@ -21,13 +23,38 @@ function addBookToLibrary() {
     myLibrary.push(newArrayBook);
 }
 
-
-
 const form = document.querySelector('form');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const read = document.querySelector('#read');
+
+title.addEventListener('input', (event) => {
+    if (title.validity.tooShort) {
+        title.setCustomValidity('Title must be at least 2 characters long.');
+    } else {
+        title.setCustomValidity('');
+    };
+});
+
+author.addEventListener('input', (event) => {
+    if (author.validity.tooShort) {
+        author.setCustomValidity('Author\'s name must be at least 2 characters long.');
+    } else {
+        author.setCustomValidity('');
+    };
+})
+
+pages.addEventListener('input', (event) => {
+    pages.setCustomValidity('');
+    if (pages.validity.rangeUnderflow) {
+        pages.setCustomValidity('Page number cannot be less than 1.');
+    } else if (!pages.validity.valid) {
+        pages.setCustomValidity('Must enter number of pages.');
+    } else {
+        pages.setCustomValidity('');
+    };
+})
 
 function submitForm(event) {
     event.preventDefault();
@@ -46,10 +73,6 @@ function resetForm() {
 }
 
 form.addEventListener('submit', submitForm);
-
-
-
-
 
 const bookDisplay = document.querySelector('.book-display');
 
@@ -99,8 +122,6 @@ function readStatus() {
     };    
 }
 
-
-
 const dialog = document.querySelector('dialog');
 const addBookButton = document.querySelector('#add-book-button');
 const cancelButton = document.querySelector('#cancel');
@@ -111,3 +132,4 @@ cancelButton.addEventListener('click', () => {
     dialog.close();
     resetForm();
 });
+
