@@ -1,7 +1,17 @@
-In this project I learned...
+# Library
 
-* How to use a dialog box - showing it and closing it.
-* How to add a method to a constructor's prototype.
-* Gathering and using data from user input through event listeners.
-* Using indexOf in conjuction with removeChild to both delete a card from the visual page and the internal array.
-* Additionally, I learned the value of deleting all of my code and starting from scratch again to ensure that I am truly understanding every part of the assignment.
+This repository houses a library app where users can make a book list.
+The live website can be found here: https://djcrago.github.io/library/
+
+Screenshot of Live Website:
+![Screenshot of website this repository houses](./website-screenshot.png?raw=true 'Website Screenshot')
+
+## Features
+
+- A dialog box
+- Methods added to a constructor's prototype
+- Using data from user input
+
+## License
+
+The project is licensed under the ISC license.
