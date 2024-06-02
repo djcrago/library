@@ -1,0 +1,9 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "author": "Dexter Crago",
+  "description": "This is a library app where users can make a book list.",
+  "main": "javascript.js",
+  "license": "ISC",
+  "type": "module"
+}
