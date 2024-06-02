@@ -20,7 +20,7 @@ function createNewBook(title, author, pages, read) {
   myLibrary.push(newBook);
 }
 
-formController();
+window.addEventListener('DOMContentLoaded', formController);
 
 export default myLibrary;
 export { createNewBook };
